@@ -3,18 +3,24 @@ from memory_profiler import memory_usage
 
 
 class Solution(object):
-    def containsDuplicate(self, nums):
-        return len(nums) != len(set(nums))
+    def isAnagram(self, s, t):
+        if len(s) != len(t):
+            return False
+        for i in set(s):
+            if s.count(i) != t.count(i):
+                return False
+        return True
 
 
 sol = Solution()
 
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+s = "anagram"
+t = "nagaram"
 
 start_time = time.time()
 start_mem = memory_usage()[0]
 
-result = sol.containsDuplicate(nums)
+result = sol.isAnagram(s, t)
 
 end_time = time.time()
 end_mem = memory_usage()[0]
